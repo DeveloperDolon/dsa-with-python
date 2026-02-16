@@ -1,5 +1,8 @@
 
 # the exercise of armstrong numbers
+# the time complexity is O(log10(n))
+# the space complexity is O(1)
+
 num = 153;
 
 def checkArmstrong(num):
