@@ -1,3 +1,5 @@
+from math import sqrt;
+
 #  print all factors of a given number various algorithm
 
 # 1. Brutforce solution TC -> O(N)/SC -> O(k)
@@ -27,4 +29,17 @@ def optimalSolution(num):
 
 print("Optimal solution: ", optimalSolution(num2));
 
-def complexOptimalSolution
+# complex optimal solution TC -> O(sqrt(N)) + O(N Log N) / SC -> O(k)
+def complexOptimalSolution(num):
+    result = [];
+    for i in range(1, int(sqrt(num)) + 1):
+        if num % i == 0:
+            result.append(i);
+
+            if num // i != i:
+                result.append(num // i);
+
+    result.sort()
+    return result;
+
+print("Complex optimal solution : ", complexOptimalSolution(num));
