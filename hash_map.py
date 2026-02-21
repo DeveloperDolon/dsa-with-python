@@ -36,9 +36,11 @@ print("---------------------------------");
 def hashMapWithDictionary(n, m):
     hash_list = {};
 
+    # Step 1: Store frequency of elements from n
     for num in n:
         hash_list[num] = hash_list.get(num, 0) + 1;
     
+    # Step 2: Query frequency for elements in m
     for num in m:
          if num < 1 or num > 10:
              print("Count of ", num, " is ", 0);
@@ -49,3 +51,25 @@ def hashMapWithDictionary(n, m):
 
 
 hashMapWithDictionary(n, m);
+
+print("---------------------------------");
+
+# character mapping 
+def characterHashing(s, q):
+    hash_list = [0] * 26;
+
+    for ch in s:
+        ascii_val = ord(ch);
+        index = ascii_val - 97;
+        hash_list[index] += 1;
+
+    for ch in q:
+        ascii_val = ord(ch);
+        index = ascii_val - 97;
+
+        print('Count of', ch, " is ", hash_list[index]);
+
+s = "azyxyyzaaaa";
+q = ['d', 'a', 'y', 'x'];
+
+characterHashing(s, q);
