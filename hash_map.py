@@ -54,7 +54,7 @@ hashMapWithDictionary(n, m);
 
 print("---------------------------------");
 
-# character mapping 
+# character mapping --> TC -> O(N+M) and SC -> O(1)
 def characterHashing(s, q):
     hash_list = [0] * 26;
 
@@ -73,3 +73,20 @@ s = "azyxyyzaaaa";
 q = ['d', 'a', 'y', 'x'];
 
 characterHashing(s, q);
+
+print("---------------------------------");
+
+# TC -> O(N+M) and SC -> O(N)
+def characterHashingWithDictionary(s, q):
+    hash_list = {};
+
+    for ch in s:
+        ascii_val = ord(ch);
+        
+        hash_list[ascii_val] = hash_list.get(ascii_val, 0) + 1;
+
+    for ch in q:
+        ascii_val = ord(ch);
+        print('Count of', ch, " is ", hash_list.get(ascii_val, 0));
+
+characterHashingWithDictionary(s, q);
