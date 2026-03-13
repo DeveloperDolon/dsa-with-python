@@ -5,7 +5,6 @@
 
 # greet();
 
-
 # Head recursion 
 headRecursionCount = 0;
 tailRecursionCount = 0;
@@ -32,7 +31,6 @@ def tailRecursion(): # Time complexity -> O(N) / Space complexity -> O(N) /// N 
 
 # tailRecursion();
 
-
 # recursion using parameters / Show x element n times 
 def headParameterRecursion(x, n):
     if n == 0:
@@ -41,7 +39,6 @@ def headParameterRecursion(x, n):
     print(x);
 
     headParameterRecursion(x, n - 1);
-
 
 headParameterRecursion("Hello", 4);
 
