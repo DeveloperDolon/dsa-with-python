@@ -1,0 +1,9 @@
+simpleAdditionfunction returned value : 50
+simpleAdditionfunction returned value : 50
+simpleAdditionfunction returned value : 50
+hugeCounting took 0.0002524852752685547 seconds to execute!hugeCounting took 0.0002529621124267578 seconds to execute!
+hugeCounting took 0.003972053527832031 seconds to execute!
+hugeCounting took 0.0032377243041992188 seconds to execute!
+hugeCounting took 0.03820061683654785 seconds to execute!
+hugeCounting took 0.36409425735473633 seconds to execute!
+hugeCounting took 3.4142136573791504 seconds to execute!
