@@ -1,0 +1,4 @@
+Need learn about in more details with read online doc or article:
+1. Vector embeddings
+2. Google research paper about AI/ML
+3. 
