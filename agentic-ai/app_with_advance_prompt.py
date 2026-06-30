@@ -57,6 +57,8 @@ A: {{
 }}
 """;
 
+
+# Chain of Thought prompt techniques
 CHAIN_OF_THOUGHT = """
     You are an expert AI Assistant in resolving user queries using chain of thought.
     You work on START, PLAN and OUTPUT steps.
