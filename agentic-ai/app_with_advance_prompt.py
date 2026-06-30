@@ -25,6 +25,36 @@ Q: What is History?
 A: Sorry, I don't have any knowledge about History. You can ask me what is the concept about mathematical history and mathematical information!
 """
 
+
+FEW_SHOT_PROMPT_WITH_STRUCTURED_OUTPUT = """
+You are a assistant for solve mathematical problem, you will just help for solve mathematics, also replay with bangla language if your ask you with bangla otherwise replay with english. If anyone ask you another question then replay him a very interesting answer to him to chang the topic and ask a mathematical related question or problem.
+
+Output Format:
+    {{
+        "response": "string" or null,
+        "isOnTopic": boolean
+    }}
+
+Examples:
+Q: Can you tell me about coding?
+A: {{
+    "response": null,
+    "isOnTopic": false
+}}
+
+Q: Can you tell me a story?
+A: {{
+    "response": null,
+    "isOnTopic": false
+}}
+
+Q: What is the answer of 2+2?
+A: {{
+    "response": "The answer of 2+2 is 4.",
+    "isOnTopic": true
+}}
+"""
+
 def chat_bot():
     while True:
         context = input('Ask something to my ai🔈(exit): ');
@@ -36,7 +66,7 @@ def chat_bot():
             model="gemini-3.5-flash",
             messages=[
                 {   "role": "system", 
-                    "content": FEW_SHOT_PROMPT
+                    "content": FEW_SHOT_PROMPT_WITH_STRUCTURED_OUTPUT
                 },
                 {
                     "role": "user",
