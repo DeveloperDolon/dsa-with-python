@@ -92,7 +92,8 @@ class RunSystem:
                 1. Add bank
                 2. Add user
                 3. See banks information
-                4. exit
+                4. Customer login
+                5. exit
             """)
 
             chose = input("Input option number: ")
@@ -105,11 +106,18 @@ class RunSystem:
                 case "3":
                     self.__bank_details_showing()
                 case "4":
+                    self.__loginAsCustomer()
+                case "5":
                     print("Exited")
                     break
                 case _:
                     print("No option selected!")
 
+    def __loginAsCustomer(self):
+        print("To login select a customer ID: \n")
+        for index, customer in enumerate(Bank.users, 1):
+            print(F"{index}. {customer.name}")
+    
     def __add_bank_info(self):
         print("Input information to add bank. \n")
 
