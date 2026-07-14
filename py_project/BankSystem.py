@@ -71,7 +71,6 @@ class Bank:
             "interest": self.__interest,
             "remaining_user": remaining_user_count
         }
-    
 
 class RunSystem:
     banks = []
@@ -97,7 +96,7 @@ class RunSystem:
 
             match chose:
                 case "1":
-                    print("Sorry this service is not available right now!")
+                    self.__add_bank_info()
                 case "2":
                     print("Sorry this service is not available right now!")
                 case "3":
@@ -107,6 +106,24 @@ class RunSystem:
                     break
                 case _:
                     print("No option selected!")
+
+    def __add_bank_info(self):
+        print("Input information to add bank. \n")
+
+        bank_name = input("Bank name: ")
+        bank_total_balance = input("Bank total balance: ")
+        bank_user_limit = input("Bank user limit: ")
+        bank_interest = input("Bank interest: ")
+
+        new_bank = Bank(
+            bank_name, 
+            int(bank_total_balance), 
+            int(bank_user_limit), 
+            int(bank_interest)
+        )
+
+        self.__add_bank(new_bank)
+        print("The bank has been successfully added✅")
 
     def __bank_details_showing(self):
         print("Chose bank to show details: \n")
@@ -126,6 +143,5 @@ class RunSystem:
     def __add_bank(self, bank):
         self.banks.append(bank)
 
-    
 bankSystem = RunSystem()
 bankSystem.run()
