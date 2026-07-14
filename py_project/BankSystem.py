@@ -33,6 +33,9 @@ class Bank:
         self.__user_limit = user_limit
         self.__interest = interest
 
+    def _add_user(self, user):
+        self.users.append(user)
+
     @property
     def bank_name(self):
         return self.__name
@@ -98,7 +101,7 @@ class RunSystem:
                 case "1":
                     self.__add_bank_info()
                 case "2":
-                    print("Sorry this service is not available right now!")
+                    self.__add_user()
                 case "3":
                     self.__bank_details_showing()
                 case "4":
@@ -143,5 +146,27 @@ class RunSystem:
     def __add_bank(self, bank):
         self.banks.append(bank)
 
+    def __add_user(self):
+        print("Which bank you want to add user: \n")
+        
+        for index, bank in enumerate(self.banks, 1):
+            print(f"{index}. {bank.bank_name}")
+
+        user_input = input("Enter option number: ")
+        chose_bank = self.banks[int(user_input) - 1]
+
+        print("Input user information: \n")
+
+        user_name = input("Input username: ")
+        user_age = input("Input age: ")
+        address = input("Input address: ")
+
+        new_user = User(user_name, user_age, address)
+
+        chose_bank._add_user(new_user)
+
+        print(f"User added to the {chose_bank.bank_name}✅")
+
+        
 bankSystem = RunSystem()
 bankSystem.run()
