@@ -33,6 +33,10 @@ class Bank:
         self.__user_limit = user_limit
         self.__interest = interest
 
+    @property
+    def bank_name(self):
+        return self.__name
+
     def _add_balance(self, balance):
         self.__total_balance += balance
 
@@ -68,3 +72,60 @@ class Bank:
             "remaining_user": remaining_user_count
         }
     
+
+class RunSystem:
+    banks = []
+
+    def run(self):
+        sonali_bank = Bank("Sonali Bank Ltd.", 5000000, 500, 10)
+        brack_bank = Bank("Brack Bank Ltd.", 2000000, 300, 7)
+        self.__add_bank(sonali_bank)
+        self.__add_bank(brack_bank)
+
+        while True:
+            print("Welcome to Bank system🎉")
+
+            print("""
+            Options (input number to chose option): 
+                1. Add bank
+                2. Add user
+                3. See banks information
+                4. exit
+            """)
+
+            chose = input("Input option number: ")
+
+            match chose:
+                case "1":
+                    print("Sorry this service is not available right now!")
+                case "2":
+                    print("Sorry this service is not available right now!")
+                case "3":
+                    self.__bank_details_showing()
+                case "4":
+                    print("Exited")
+                    break
+                case _:
+                    print("No option selected!")
+
+    def __bank_details_showing(self):
+        print("Chose bank to show details: \n")
+        
+        for index, bank in enumerate(self.banks, 1):
+            print(f"{index}. {bank.bank_name}")
+
+        user_input = input("Enter option number: ")
+        chose_bank = self.banks[int(user_input) - 1].public_bank_info()
+        
+        print(f"""
+            Bank Name: {chose_bank['name']}
+            Interest Rate: {chose_bank['interest']}%
+            Remaining User: {chose_bank['remaining_user']}
+        """)
+
+    def __add_bank(self, bank):
+        self.banks.append(bank)
+
+    
+bankSystem = RunSystem()
+bankSystem.run()
